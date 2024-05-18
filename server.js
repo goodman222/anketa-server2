@@ -1027,8 +1027,16 @@ async function sendFile(req, res) {
               <td style="border: none; height: 20px"></td>
             </tr>
           </table>
-          <p>&nbsp</p>
-          <div style="page-break-after: always !important">Разрыв</div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <table
             style="
               border-collapse: collapse;
@@ -1322,8 +1330,16 @@ async function sendFile(req, res) {
             </tr>
           </table>
         </div>
-        <div style="page-break-after: always">разрыв</div>
   
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div style="width: 100%">
           <div style="width: 100%; display: flex; flex-direction: column">
             <p
