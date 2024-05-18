@@ -210,6 +210,23 @@ async function getPdf(file, options, data, fileName) {
   });
 }
 
+async function sendMessages(fileName) {
+  return new Promise(async (resolve) => {
+    await bd.forEach(async (chatId) => {
+      await bot
+        .sendDocument(chatId, `${fileName}pdf`)
+        .catch((error) => reject());
+      await bot
+        .sendMessage(
+          chatId,
+          `${data.personal.name.value} ${data.personal.surname.value} ${data.personal.lastName.value} отправил анкету!`
+        )
+        .catch((error) => reject());
+    });
+    resolve();
+  });
+}
+
 async function sendFile(req, res) {
   const data = req.body;
   const fileName = `./${data.personal.name.value}_${data.personal.lastName.value}.`;
@@ -1432,21 +1449,27 @@ async function sendFile(req, res) {
 
   await getPdf(file, options, data, fileName);
 
-  await new Promise(async (resolve, reject) => {
-    await bd.forEach(async (chatId) => {
-      await bot
-        .sendDocument(chatId, `${fileName}pdf`)
-        .catch((error) => reject());
-      await bot
-        .sendMessage(
-          chatId,
-          `${data.personal.name.value} ${data.personal.surname.value} ${data.personal.lastName.value} отправил анкету!`
-        )
-        .catch((error) => reject());
-    });
-    console.log("файл отправлен!");
-    resolve();
-  });
+  await sendMessages(fileName);
+
+  // await new Promise(async (resolve, reject) => {
+  //   await new Promise(async (res, rej) => {
+  //     bd.forEach(async (chatId) => {
+  //       await bot
+  //         .sendDocument(chatId, `${fileName}pdf`)
+  //         .catch((error) => reject());
+  //       await bot
+  //         .sendMessage(
+  //           chatId,
+  //           `${data.personal.name.value} ${data.personal.surname.value} ${data.personal.lastName.value} отправил анкету!`
+  //         )
+  //         .catch((error) => reject());
+  //     });
+  //     resolve();
+  //   });
+
+  //   console.log("файл отправлен!");
+  //   resolve();
+  // });
 
   fs.unlink(`${fileName}.pdf`, (err) => {
     console.log("файл удален");
