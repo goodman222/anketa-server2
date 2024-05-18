@@ -203,8 +203,9 @@ let educationAdditionalString = "";
 let workString = "";
 
 async function getPdf(file, options, data, fileName) {
-  return new Promise((resolve, reject) => {
-    html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
+  return new Promise(async (resolve, reject) => {
+    console.log("1");
+    await html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
       fs.writeFile(`${fileName}.pdf`, pdfBuffer, () => {
         resolve();
       });
@@ -214,9 +215,10 @@ async function getPdf(file, options, data, fileName) {
 
 async function sendMessages(fileName, data) {
   return new Promise(async (resolve, reject) => {
-    console.log("Отправка файлов");
+    console.log("2");
+    // console.log("Отправка файлов");
     await bd.forEach(async (chatId) => {
-      console.log("Отправка в цикле");
+      // console.log("Отправка в цикле");
       await bot
         .sendDocument(chatId, `${fileName}.pdf`)
         .catch((error) => reject());
@@ -228,7 +230,7 @@ async function sendMessages(fileName, data) {
         .catch((error) => reject());
     });
 
-    console.log("Отправка после цикла");
+    // console.log("Отправка после цикла");
     resolve();
   });
 }
