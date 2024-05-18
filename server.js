@@ -1564,26 +1564,6 @@ async function sendFile(req, res) {
 
   await sendMessages(fileName, data);
 
-  // await new Promise(async (resolve, reject) => {
-  //   await new Promise(async (res, rej) => {
-  //     bd.forEach(async (chatId) => {
-  //       await bot
-  //         .sendDocument(chatId, `${fileName}pdf`)
-  //         .catch((error) => reject());
-  //       await bot
-  //         .sendMessage(
-  //           chatId,
-  //           `${data.personal.name.value} ${data.personal.surname.value} ${data.personal.lastName.value} отправил анкету!`
-  //         )
-  //         .catch((error) => reject());
-  //     });
-  //     resolve();
-  //   });
-
-  //   console.log("файл отправлен!");
-  //   resolve();
-  // });
-
   // fs.unlink(`${fileName}.pdf`, (err) => {
   //   console.log("файл удален");
   //   if (err) throw err; // не удалось удалить файл
