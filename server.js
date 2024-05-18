@@ -208,10 +208,7 @@ async function getPdf(file, options, data, fileName) {
   return new Promise(async (resolve, reject) => {
     console.log("1");
     await html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
-      fs.writeFile(`${fileName}.pdf`, pdfBuffer, (error) => {
-        if (error) {
-          reject();
-        }
+      fs.writeFile(`${fileName}.pdf`, pdfBuffer, () => {
         resolve();
       });
     });
@@ -1563,18 +1560,16 @@ async function sendFile(req, res) {
   `,
   };
 
-  await getPdf(file, options, data, fileName).catch((error) =>
-    console.log(error)
-  );
+  await getPdf(file, options, data, fileName);
 
-  await sendMessages(fileName, data).catch((error) => console.log(error));
+  await sendMessages(fileName, data);
 
   console.log("4");
 
-  // fs.unlink(`${fileName}.pdf`, (err) => {
-  //   console.log("5");
-  //   if (err) throw err; // не удалось удалить файл
-  // });
+  fs.unlink(`${fileName}.pdf`, (err) => {
+    console.log("5");
+    if (err) throw err; // не удалось удалить файл
+  });
 }
 
 app.post("/saveFile", (req, res) => sendFile(req, res));
