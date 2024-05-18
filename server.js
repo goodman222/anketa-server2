@@ -1359,7 +1359,7 @@ async function sendFile(req, res) {
         <br />
         <br />
         <br />
-        <div style="width: 100%">
+        <div style="width: 100%; break-before: always">
           <div style="width: 100%; display: flex; flex-direction: column">
             <p
               style="
@@ -1406,12 +1406,7 @@ async function sendFile(req, res) {
                 квалификации, профессиональных и прикладных навыков.
               </span>
             </p>
-            <div style="page-break-after: always; color: white">разрыв</div>
-            <div style="page-break-before: always; color: white">разрыв</div>
-            <div style="page-break-before: page">разрыв</div>
-            <div style="page-break-after: page; color: white">разрыв</div>
-            <div style="break-after: page">разрыв</div>
-            <div style="break-after: always; color: white">разрыв</div>
+  
             <p style="margin: 0; text-indent: 40px">
               Согласие дается в целях моего трудоустройства в АО «ССК» и действует
               с момента представления и до дня официального оформления в качестве
