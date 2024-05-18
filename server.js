@@ -1566,10 +1566,10 @@ async function sendFile(req, res) {
 
   console.log("4");
 
-  fs.unlink(`${fileName}.pdf`, (err) => {
-    console.log("5");
-    if (err) throw err; // не удалось удалить файл
-  });
+  // fs.unlink(`${fileName}.pdf`, (err) => {
+  //   console.log("5");
+  //   if (err) throw err; // не удалось удалить файл
+  // });
 }
 
 app.post("/saveFile", (req, res) => sendFile(req, res));
