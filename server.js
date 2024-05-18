@@ -202,9 +202,8 @@ let educationBasicString = "";
 let educationAdditionalString = "";
 let workString = "";
 
-function getPdf(file, options, data, fileName) {
+async function getPdf(file, options, data, fileName) {
   html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
-    // console.log("PDF Buffer:-", pdfBuffer);
     fs.writeFile(`${fileName}pdf`, pdfBuffer, () => {
       console.log("готово мб");
     });
@@ -1431,7 +1430,7 @@ async function sendFile(req, res) {
   `,
   };
 
-  getPdf(file, options, data, fileName);
+  await getPdf(file, options, data, fileName);
 
   await new Promise(async (resolve, reject) => {
     await bd.forEach(async (chatId) => {
@@ -1445,12 +1444,14 @@ async function sendFile(req, res) {
         )
         .catch((error) => reject());
     });
+    console.log("файл отправлен!");
     resolve();
   });
 
-  // fs.unlink(`${fileName}.docx`, (err) => {
-  //   if (err) throw err; // не удалось удалить файл
-  // });
+  fs.unlink(`${fileName}.pdf`, (err) => {
+    console.log("файл удален");
+    if (err) throw err; // не удалось удалить файл
+  });
 }
 
 app.post("/saveFile", (req, res) => sendFile(req, res));
