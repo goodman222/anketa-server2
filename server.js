@@ -212,7 +212,9 @@ async function getPdf(file, options, data, fileName) {
 
 async function sendMessages(fileName, data) {
   return new Promise(async (resolve, reject) => {
+    console.log("Отправка файлов");
     await bd.forEach(async (chatId) => {
+      console.log("Отправка в цикле");
       await bot
         .sendDocument(chatId, `${fileName}.pdf`)
         .catch((error) => reject());
@@ -223,6 +225,8 @@ async function sendMessages(fileName, data) {
         )
         .catch((error) => reject());
     });
+
+    console.log("Отправка после цикла");
     resolve();
   });
 }
