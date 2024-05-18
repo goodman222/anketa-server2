@@ -210,12 +210,13 @@ async function getPdf(file, options, data, fileName) {
         resolve();
       });
     });
+    console.log("2");
   });
 }
 
 async function sendMessages(fileName, data) {
   return new Promise(async (resolve, reject) => {
-    console.log("2");
+    console.log("3");
     // console.log("Отправка файлов");
     await bd.forEach(async (chatId) => {
       // console.log("Отправка в цикле");
