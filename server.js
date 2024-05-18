@@ -29,6 +29,8 @@ app.use(express.json());
 
 let bd;
 
+process.env.NTBA_FIX_350 = true;
+
 async function readBase() {
   fs.readFile("./base.json", (err, data) => {
     bd = JSON.parse(data);
