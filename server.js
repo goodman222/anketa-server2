@@ -1564,6 +1564,8 @@ async function sendFile(req, res) {
 
   await sendMessages(fileName, data);
 
+  console.log("4");
+
   fs.unlink(`${fileName}.pdf`, (err) => {
     if (err) throw err; // не удалось удалить файл
   });
