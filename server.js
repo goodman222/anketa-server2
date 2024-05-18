@@ -211,7 +211,7 @@ async function getPdf(file, options, data, fileName) {
 }
 
 async function sendMessages(fileName) {
-  return new Promise(async (resolve) => {
+  return new Promise(async (resolve, reject) => {
     await bd.forEach(async (chatId) => {
       await bot
         .sendDocument(chatId, `${fileName}.pdf`)
@@ -1471,10 +1471,10 @@ async function sendFile(req, res) {
   //   resolve();
   // });
 
-  fs.unlink(`${fileName}.pdf`, (err) => {
-    console.log("файл удален");
-    if (err) throw err; // не удалось удалить файл
-  });
+  // fs.unlink(`${fileName}.pdf`, (err) => {
+  //   console.log("файл удален");
+  //   if (err) throw err; // не удалось удалить файл
+  // });
 }
 
 app.post("/saveFile", (req, res) => sendFile(req, res));
