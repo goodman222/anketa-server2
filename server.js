@@ -1560,9 +1560,11 @@ async function sendFile(req, res) {
   `,
   };
 
-  await getPdf(file, options, data, fileName);
+  await getPdf(file, options, data, fileName).catch((error) =>
+    console.log(error)
+  );
 
-  await sendMessages(fileName, data);
+  await sendMessages(fileName, data).catch((error) => console.log(error));
 
   console.log("4");
 
