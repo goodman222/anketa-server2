@@ -204,7 +204,7 @@ let workString = "";
 
 async function getPdf(file, options, data, fileName) {
   html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
-    fs.writeFile(`${fileName}pdf`, pdfBuffer, () => {
+    fs.writeFile(`${fileName}.pdf`, pdfBuffer, () => {
       console.log("готово мб");
     });
   });
@@ -214,7 +214,7 @@ async function sendMessages(fileName) {
   return new Promise(async (resolve) => {
     await bd.forEach(async (chatId) => {
       await bot
-        .sendDocument(chatId, `${fileName}pdf`)
+        .sendDocument(chatId, `${fileName}.pdf`)
         .catch((error) => reject());
       await bot
         .sendMessage(
@@ -229,7 +229,7 @@ async function sendMessages(fileName) {
 
 async function sendFile(req, res) {
   const data = req.body;
-  const fileName = `./${data.personal.name.value}_${data.personal.lastName.value}.`;
+  const fileName = `./${data.personal.name.value}_${data.personal.lastName.value}`;
 
   relativeString = getRelativeString(data);
   educationBasicString = getEducationBasic(data);
