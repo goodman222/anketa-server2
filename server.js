@@ -337,11 +337,32 @@ async function sendFile(req, res) {
                 ${data.start.branch.value}
               </td>
             </tr>
-            <tr style="border: none; height: 20px">
-              <td style="border: none"></td>
+          </table>
+          <table
+            style="
+              border-collapse: collapse;
+              width: 100%;
+              font-weight: bold;
+              text-align: center;
+              border: 2px solid black;
+              font-size: 9pt;
+              font-family: Arial, Helvetica, sans-serif;
+              border: none;
+            "
+          >
+            <tr style="border: none; height: 20px; border-right: 2px solid black">
+              <td
+                style="
+                  border: none;
+                  height: 20px;
+                  border-right: 2px solid black;
+                  border-left: 2px solid black;
+  
+                  width: 100%;
+                "
+              ></td>
             </tr>
           </table>
-  
           <table
             style="
               border-collapse: collapse;
@@ -394,8 +415,31 @@ async function sendFile(req, res) {
                 ${data.personal.surname.value}
               </td>
             </tr>
-            <tr style="border: none; height: 20px">
-              <td style="border: none"></td>
+          </table>
+  
+          <table
+            style="
+              border-collapse: collapse;
+              width: 100%;
+              font-weight: bold;
+              text-align: center;
+              border: 2px solid black;
+              font-size: 9pt;
+              font-family: Arial, Helvetica, sans-serif;
+              border: none;
+            "
+          >
+            <tr style="border: none; height: 20px; border-right: 2px solid black">
+              <td
+                style="
+                  border: none;
+                  height: 20px;
+                  border-right: 2px solid black;
+                  border-left: 2px solid black;
+  
+                  width: 100%;
+                "
+              ></td>
             </tr>
           </table>
   
@@ -845,8 +889,29 @@ async function sendFile(req, res) {
                 ${data.family.criminal.value}
               </td>
             </tr>
-            <tr style="border: 2px solid black; height: 20px">
-              <td style="border: none; border-top: none"></td>
+          </table>
+  
+          <table
+            style="
+              border-collapse: collapse;
+              width: 100%;
+              font-weight: bold;
+              text-align: center;
+              border: 2px solid black;
+              font-size: 9pt;
+              font-family: Arial, Helvetica, sans-serif;
+              border-top: none;
+            "
+          >
+            <tr style="height: 20px; border: 2px solid black; border-top: none">
+              <td
+                style="
+                  height: 20px;
+                  border: 2px solid black;
+                  border-top: none;
+                  width: 100%;
+                "
+              ></td>
             </tr>
           </table>
   
@@ -1023,25 +1088,28 @@ async function sendFile(req, res) {
               </td>
             </tr>
             ${relativeString}
-            <tr style="border: 2px solid black">
-              <td style="border: none; height: 20px"></td>
-            </tr>
           </table>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+        </div>
+      </div>
+  
+      <div style="page-break-after: always; color: white">разрыв</div>
+  
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+          "
+        >
           <table
             style="
               border-collapse: collapse;
@@ -1335,31 +1403,18 @@ async function sendFile(req, res) {
             </tr>
           </table>
         </div>
+      </div>
   
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div style="width: 100%; break-before: always">
+      <div style="page-break-before: always; color: white">Разрыв</div>
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <div style="width: 100%">
           <div style="width: 100%; display: flex; flex-direction: column">
             <p
               style="
@@ -1373,7 +1428,19 @@ async function sendFile(req, res) {
               АО «Сибирская Сервисная Компания»<br />
               Александру Николаевичу Котову
             </p>
-            <p style="align-self: flex-end">от Данные</p>
+            <p style="align-self: flex-end; margin-bottom: 0px">
+              от ______________________
+            </p>
+            <p style="align-self: flex-end; margin-bottom: 0px">
+              _________________________
+            </p>
+            <p style="align-self: flex-end; margin-bottom: 0px">
+              _________________________
+            </p>
+            <p style="align-self: flex-end; margin-bottom: 0px">
+              _________________________
+            </p>
+            <p style="align-self: flex-end">(ФИО, паспортные данные)</p>
   
             <h1 style="font-weight: bold; font-size: 11pt; align-self: center">
               СОГЛАСИЕ
@@ -1459,8 +1526,13 @@ async function sendFile(req, res) {
                 </td>
               </tr>
               <tr style="border: 2px solid black; height: 35px">
-                <td style="width: 33.3%; border: 2px solid black"></td>
-                <td style="width: 33.3%; border: 2px solid black"></td>
+                <td style="width: 33.3%; border: 2px solid black">
+                  ${data.start.dateComlition.value}
+                </td>
+                <td style="width: 33.3%; border: 2px solid black">
+                  ${data.personal.lastName.value} ${data.personal.name.value[0]}.
+                  ${data.personal.surname.value[0]}.
+                </td>
                 <td style="width: 33.3%; border: 2px solid black"></td>
               </tr>
             </table>
