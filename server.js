@@ -208,7 +208,10 @@ async function getPdf(file, options, data, fileName) {
   return new Promise(async (resolve, reject) => {
     console.log("1");
     await html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
-      fs.writeFile(`${fileName}.pdf`, pdfBuffer, () => {
+      fs.writeFile(`${fileName}.pdf`, pdfBuffer, (error) => {
+        if (error) {
+          reject();
+        }
         resolve();
       });
     });
