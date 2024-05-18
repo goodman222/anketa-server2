@@ -210,7 +210,7 @@ async function getPdf(file, options, data, fileName) {
   });
 }
 
-async function sendMessages(fileName) {
+async function sendMessages(fileName, data) {
   return new Promise(async (resolve, reject) => {
     await bd.forEach(async (chatId) => {
       await bot
@@ -1449,7 +1449,7 @@ async function sendFile(req, res) {
 
   await getPdf(file, options, data, fileName);
 
-  await sendMessages(fileName);
+  await sendMessages(fileName, data);
 
   // await new Promise(async (resolve, reject) => {
   //   await new Promise(async (res, rej) => {
