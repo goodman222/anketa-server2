@@ -203,9 +203,11 @@ let educationAdditionalString = "";
 let workString = "";
 
 async function getPdf(file, options, data, fileName) {
-  html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
-    fs.writeFile(`${fileName}.pdf`, pdfBuffer, () => {
-      console.log("готово мб");
+  return new Promise((resolve, reject) => {
+    html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
+      fs.writeFile(`${fileName}.pdf`, pdfBuffer, () => {
+        resolve();
+      });
     });
   });
 }
